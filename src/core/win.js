@@ -7,7 +7,9 @@ export const win = () => {
     const confirmButtonElement = document.getElementById("submit");
 
     gameRestartButtonElement.style.display = "inline";
+    // 기존 이벤트 리스너 제거 후 새로 등록
+    gameRestartButtonElement.removeEventListener("click", handleRestartGame);
     gameRestartButtonElement.addEventListener("click", handleRestartGame);
 
     confirmButtonElement.setAttribute('disabled', true);
-}
+};
