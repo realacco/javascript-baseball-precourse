@@ -1,3 +1,4 @@
+import { globalVariable } from "../constant/globalVariable.js";
 import { proceedGame } from "../core/index.js";
 import { validateUserValue } from "../utils/index.js";
 
@@ -12,7 +13,10 @@ export const handleConfirmClick = (e) => {
 
   if (validateUserValue(value)) {
     // 게임 진행
-    proceedGame(value);
+    proceedGame(
+      value.split("").map((number) => parseInt(number, 10)),
+      globalVariable.targetNumber
+    );
   } else {
     // 게임 미진행
     alert("잘못된 값을 입력하였습니다.");
